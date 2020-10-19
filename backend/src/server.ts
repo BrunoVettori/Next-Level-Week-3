@@ -1,41 +1,12 @@
 import Express from 'express'
-import { getRepository } from 'typeorm'
-import Orphanages from './models/Orphanage'
-
 import './database/connection'
-import Orphanage from './models/Orphanage'
 
-const app = Express();
+import routes from './routes'
 
-app.use(Express.json());
+const app = Express()
 
-app.post('/orphanages', async (request, response) => {
-    console.log('body',request.body);
-    const {
-        name,
-        latitude,
-        longitude,
-        about,
-        instructions,
-        opening_hours,
-        open_on_weekends
-    } = request.body
+app.use(Express.json())
 
-    const orphanagesRepository = getRepository(Orphanages);
-
-    const orphanage = orphanagesRepository.create({
-        name,
-        latitude,
-        longitude,
-        about,
-        instructions,
-        opening_hours,
-        open_on_weekends
-    })
-
-    await orphanagesRepository.save(orphanage)
-
-    return response.status(201).json(orphanage)
-})
+app.use(routes)
 
 app.listen(3333)
