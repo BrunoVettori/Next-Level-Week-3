@@ -85,9 +85,8 @@ export default function Orphanage() {
                 scrollWheelZoom={false}
                 doubleClickZoom={false}
               >
-                <TileLayer 
-                  url={`https://a.tile.openstreetmap.org/{z}/{x}/{y}.png`}
-                />
+                <TileLayer url={`https://a.tile.openstreetmap.org/{z}/{x}/{y}.png`}/>
+                
                 <Marker interactive={false} icon={MapIcon} position={[-27.2092052,-49.6401092]} />
               </Map>
 
