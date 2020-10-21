@@ -66,7 +66,7 @@ return (
 
         <View style = {styles.footer}>
             
-            <Text style = {styles.footerText}> 2 oranatos encontrados </Text>
+            <Text style = {styles.footerText}> {orphanages.length} oranatos encontrados </Text>
 
             <RectButton style = {styles.createOrphanageButton} onPress = {handleNavigateToCreateOrphanage}>
                 <Feather name = "plus" size = {20} color = "#fff" />
